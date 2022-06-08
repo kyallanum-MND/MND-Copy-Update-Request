@@ -1,0 +1,6 @@
+.vscode
+venv
+requirements_dev.txt
+requirements.txt.lock
+
+*__pycache__
