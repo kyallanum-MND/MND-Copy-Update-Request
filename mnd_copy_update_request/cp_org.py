@@ -1,5 +1,5 @@
 import json, requests, os, re, logging, shutil
-from cp_prod import copy_prod
+from mnd_copy_update_request.cp_prod import copy_prod
 from urllib.parse import urljoin
 
 class copy_org:

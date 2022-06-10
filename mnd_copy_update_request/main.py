@@ -1,9 +1,9 @@
 import logging, argparse, os, shutil
 from datetime import datetime
-from cp_org import copy_org
-from cp_prod import copy_prod
-from cp_proj import copy_proj
-from _version import __tool_name__, __version__, __description__
+from mnd_copy_update_request.cp_org import copy_org
+from mnd_copy_update_request.cp_prod import copy_prod
+from mnd_copy_update_request.cp_proj import copy_proj
+from mnd_copy_update_request._version import __tool_name__, __version__, __description__
 
 logger = logging.getLogger()
 stream_handler = logging.StreamHandler()
