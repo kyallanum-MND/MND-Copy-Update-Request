@@ -7,7 +7,7 @@ setuptools.setup(
     name=mnd_name,
     entry_points={
         'console_scripts': [
-            f'{mnd_name}={mnd_name}.main:main'
+            f'{mnd_name}={mnd_name}.__main__:main'
         ]
     },
     version = __version__,
