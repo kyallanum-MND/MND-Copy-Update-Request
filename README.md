@@ -22,10 +22,11 @@ git clone https://github.com/kyallanum-MND/MND-Copy-Update-Request.git
 2. Run setup.py
 ```shell
 cd MND-Copy-Update-Request
+pip install -r requirements.txt
 python setup.py install
 ```
 
-## Full Usage:
+### Full Usage:
 ```shell
 mnd_copy_update_request [-h] [-t {proj,prod,org}] -se S_ENV -sk S_TOKEN -su S_USER_KEY [-de D_ENV] -dk D_TOKEN [-du D_USER_KEY] -o OUTPUT_DIR [--no-cleanup]
 
@@ -52,7 +53,7 @@ optional arguments:
   --no-cleanup          Do not cleanup the files created for further inspection
 ```
 
-## PLEASE NOTE:
+### PLEASE NOTE:
 - The "-dk" flag will ALWAYS be the destination organization token. The tool will automatically preserve the Product and Project name unless the Product name is not specified, in which case it will insert it into the Product: "Py_Script"
 
 ## Examples:
