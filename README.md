@@ -8,7 +8,9 @@ This tool allows you to copy update requests
 * Creates a directory structure that mimics the structure in the whitesource UI.
 
 ## Supported Operating Systems
-- **Windows (PowerShell):** 10
+- These are all of the operating systems this has been tested on:
+ - **Windows (PowerShell):** 10
+ - **Ubuntu (bash):** 22.04
 
 ## Prerequisites
 * Python 3.6+
