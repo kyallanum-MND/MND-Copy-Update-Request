@@ -9,8 +9,8 @@ This tool allows you to copy update requests
 
 ## Supported Operating Systems
 - These are all of the operating systems this has been tested on:
- - **Windows (PowerShell):** 10
- - **Ubuntu (bash):** 22.04
+  - **Windows (PowerShell):** 10
+  - **Ubuntu (bash):** 22.04
 
 ## Prerequisites
 * Python 3.6+
