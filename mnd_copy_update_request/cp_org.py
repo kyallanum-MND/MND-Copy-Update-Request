@@ -11,19 +11,18 @@ class copy_org:
 
     _url_suffix = "api/v1.3"
     _headers = {'Content-Type': 'application/json'}
-
-    #We are just declaring/instantiating instance variables so we know everything that we use.
-    #self._products = {}
-    #self._copy_objects = []
-    #self._source_org_token = ""
-    #self._source_endpoint = ""
-    #self._source_environment = ""
-    #self._source_user_key = ""
-    #self._dest_org_token = ""
-    #self._dest_environment = ""
-    #self._dest_user_key = ""
     
     def __init__(self, s_org_token: str, s_env: str, s_user_key:str, d_org_token: str, d_env=None, d_user_key=None):
+        #We are just declaring/instantiating instance variables so we know everything that we use.
+        self._products = {}
+        self._copy_objects = []
+        self._source_org_token = ""
+        self._source_endpoint = ""
+        self._source_environment = ""
+        self._source_user_key = ""
+        self._dest_org_token = ""
+        self._dest_environment = ""
+        self._dest_user_key = ""
         
         logging.info(f"Copying organization with token {s_org_token}")
         self._source_endpoint = s_env

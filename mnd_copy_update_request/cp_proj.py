@@ -9,19 +9,19 @@ class copy_proj:
     }
     _url_suffix = "api/v1.3"
     _headers = {'Content-Type': 'application/json'}
-    
-        #We are just declaring/instantiating instance variables so we know everything that we use.
-        #self.proj_dir_name = ""
-        #self._project_token = ""
-        #self._source_environment = ""
-        #self._source_user_key = ""
-        #self._dest_environment = ""
-        #self._dest_user_key = ""
-        #self._dest_org_token = ""
-        #self._request_token = ""
 
     
     def __init__(self, proj_dir:str, project_token: str, s_env: str, s_user_key: str, d_org_token, d_env=None, d_user_key=None):
+        
+        #We are just declaring/instantiating instance variables so we know everything that we use.
+        self.proj_dir_name = ""
+        self._project_token = ""
+        self._source_environment = ""
+        self._source_user_key = ""
+        self._dest_environment = ""
+        self._dest_user_key = ""
+        self._dest_org_token = ""
+        self._request_token = ""
         
         logging.info(f"Copying project with token {project_token}.")
         self._source_environment = urljoin(s_env, self._url_suffix)
