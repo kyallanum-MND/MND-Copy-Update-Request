@@ -27,7 +27,7 @@ python setup.py install
 
 ## Full Usage:
 ```shell
-usage: __main__.py [-h] [-t {proj,prod,org}] -se S_ENV -sk S_TOKEN -su S_USER_KEY [-de D_ENV] -dk D_TOKEN [-du D_USER_KEY] -o OUTPUT_DIR [--no-cleanup]
+mnd_copy_update_request [-h] [-t {proj,prod,org}] -se S_ENV -sk S_TOKEN -su S_USER_KEY [-de D_ENV] -dk D_TOKEN [-du D_USER_KEY] -o OUTPUT_DIR [--no-cleanup]
 
 Mend Copy Update Request Tool
 
