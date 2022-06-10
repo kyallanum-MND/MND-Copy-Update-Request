@@ -53,10 +53,10 @@ optional arguments:
   --no-cleanup          Do not cleanup the files created for further inspection
 ```
 
-### PLEASE NOTE:
+## PLEASE NOTE:
 - The "-dk" flag will ALWAYS be the destination organization token. The tool will automatically preserve the Product and Project name unless the Product name is not specified, in which case it will insert it into the Product: "Py_Script"
 
-### Examples:
+## Examples:
 ```shell
 # Copy Project Update Request for project from saas to app 
 mnd_copy_update_request -t proj -se https://saas.whitesourcesoftware.com -sk <Source Project Token> -su <Source User Key> -de https://app.whitesourcesoftware.com -dk <Destination Organization Token> -du <Destination User Key> -o update-requests 
