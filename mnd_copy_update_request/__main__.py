@@ -30,8 +30,8 @@ def parseargs():
     parser.add_argument("-de", "--d-env", help="The destination environment. If none, same as source environment", dest="d_env", type=str, required=False)
     parser.add_argument("-dk", "--d-token", help="The destination Organization Token.", dest="d_token", type=str, required=True)
     parser.add_argument("-du", "--d-userkey", help="The destination userkey. If none, same as source user key", dest="d_user_key", type=str, required=False)
-    parser.add_argument("-o", "--output", help="The output directory", dest="output_dir", type=str, default=".", required=False)
-    parser.add_argument("--no-cleanup", action="store_true")
+    parser.add_argument("-o", "--output", help="The output directory", dest="output_dir", type=str, default=".", required=True)
+    parser.add_argument("--no-cleanup", help="Do not cleanup the files created for further inspection", action="store_true")
     
     return parser.parse_args()
 
