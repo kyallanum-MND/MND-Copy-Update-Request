@@ -11,35 +11,29 @@ class copy_proj:
     _headers = {'Content-Type': 'application/json'}
 
     
-    def __init__(self, proj_dir:str, project_token: str, s_env: str, s_user_key: str, d_org_token, d_env=None, d_user_key=None):
+    def __init__(self, proj_dir:str, project_token: str, s_env: str, s_user_key: str, child_level: int=0):
+        tabs = {"tabs": f"{child_level * '  '}"}
+        
+        global logger
+        logger = logging.getLogger("__main__")
+        logger = logging.LoggerAdapter(logger, tabs)
+        
+        
+        logger.info(f"Copying project with token {project_token}", extra=tabs)
         
         #We are just declaring/instantiating instance variables so we know everything that we use.
-        self.proj_dir_name = ""
-        self._project_token = ""
-        self._source_environment = ""
-        self._source_user_key = ""
+        self.proj_dir_name = proj_dir
+        self._project_token = project_token
+        self._source_environment = urljoin(s_env, self._url_suffix)
+        self._source_user_key = s_user_key
         self._dest_environment = ""
         self._dest_user_key = ""
         self._dest_org_token = ""
         self._request_token = ""
         
-        logging.info(f"Copying project with token {project_token}.")
-        self._source_environment = urljoin(s_env, self._url_suffix)
-        self._source_user_key = s_user_key
-        self._project_token = project_token
-        
-        if d_env == None:
-            d_env = s_env
-        if d_user_key == None:
-            d_user_key = s_user_key
-            
-        self._dest_environment = d_env
-        self._dest_user_key = d_user_key
-        self._dest_org_token = d_org_token
-        self.proj_dir_name = proj_dir
-        
         self.get_project_vitals()
         self.build_api_request()
+    
         
     def get_project_vitals(self) -> None:
         vital_api = {
@@ -57,6 +51,11 @@ class copy_proj:
     def build_api_request(self) -> None:
         self.source_api_info['userKey'] = self._source_user_key
         self.source_api_info['requestToken'] = self._request_token
+        
+    def set_destination(self, d_org_token: str, d_user_key: str = "", d_env: str = "") -> None:
+        self._dest_org_token = d_org_token
+        self._dest_user_key = self._source_user_key if d_user_key == "" else d_user_key
+        self._dest_environment = self._source_environment if d_env == "" else d_env
 
     def get_plugin_audit_file(self) -> int:
         payload = json.dumps(self.source_api_info)
@@ -66,7 +65,7 @@ class copy_proj:
         if update_request_obj == {}:
             return 1
         
-        logging.info(f"Getting update request for {self._project_token}.")
+        logger.info(f"Getting update request for {self._project_token}")
         with open(os.path.join(os.getcwd(), "update-request.json"), 'w') as file:
             json.dump(update_request_obj, file)
         
@@ -110,6 +109,6 @@ class copy_proj:
             
         dest_payload = urlencode(update_request_obj)
         
-        logging.info(f"Sending update request for project token: {self._project_token}")
+        logger.info(f"Sending update request for project token: {self._project_token}")
         response = requests.post(dest_url, headers=dest_headers, data=dest_payload)
-        logging.debug(response.content)
+        logger.debug(response.content)
